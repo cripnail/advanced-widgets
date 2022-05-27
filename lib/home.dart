@@ -28,9 +28,9 @@ class HomeScreenState extends State<HomeScreen> {
             onPressed: () {
               _changeTheme(context, MyThemeKeys.lightPurpleAmber);
             },
-            backgroundColor: Colors.purple,
+            backgroundColor: Colors.amber,
             focusColor: Colors.blue,
-            foregroundColor: Colors.amber,
+            foregroundColor: Colors.purple,
             hoverColor: Colors.green,
             splashColor: Colors.tealAccent,
           ),
@@ -38,9 +38,9 @@ class HomeScreenState extends State<HomeScreen> {
             onPressed: () {
               _changeTheme(context, MyThemeKeys.lightIndigoPink);
             },
-            backgroundColor: Colors.indigo,
+            backgroundColor: Colors.pink,
             focusColor: Colors.blueAccent,
-            foregroundColor: Colors.pink,
+            foregroundColor: Colors.indigo,
             hoverColor: Colors.greenAccent,
             splashColor: Colors.teal,
           ),
@@ -48,9 +48,9 @@ class HomeScreenState extends State<HomeScreen> {
             onPressed: () {
               _changeTheme(context, MyThemeKeys.darkPinkBlueGrey);
             },
-            backgroundColor: Colors.pink,
+            backgroundColor: Colors.blueGrey,
             focusColor: const Color(0xFF42A5F5),
-            foregroundColor: Colors.blueGrey,
+            foregroundColor: Colors.pink,
             hoverColor: const Color(0xff123456),
             splashColor: const Color(0xffb74093),
           ),
@@ -58,10 +58,10 @@ class HomeScreenState extends State<HomeScreen> {
             onPressed: () {
               _changeTheme(context, MyThemeKeys.darkPurpleGreen);
             },
-            backgroundColor: Colors.purple,
+            backgroundColor: Colors.green,
             focusColor: const Color(0x4C68AFFF),
-            foregroundColor: Colors.green,
-            hoverColor: const Color(0x2A542DFF),
+            foregroundColor: Colors.purple,
+            hoverColor: const Color(0xB047FF27),
             splashColor: const Color(0xD53CF0FF),
           ),
         ],
