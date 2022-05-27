@@ -6,7 +6,7 @@ import 'package:adv_widgets/themes.dart';
 void main() {
   runApp(
     const CustomTheme(
-      initialThemeKey: MyThemeKeys.LIGHT,
+      initialThemeKey: MyThemeKeys.lightPurpleAmber,
       child: MyApp(),
     ),
   );
