@@ -10,8 +10,8 @@ enum MyThemeKeys {
 class MyThemes {
   static final ThemeData lightPurpleAmberTheme = ThemeData(
       brightness: Brightness.light,
-      primaryColor: Colors.purple,
-      primarySwatch: Colors.amber,
+      primaryColor: Colors.amber,
+      primarySwatch: Colors.purple,
       iconTheme: const IconThemeData(color: Colors.amber),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -51,7 +51,7 @@ class MyThemes {
         selectionColor: Colors.amber,
       ),
       appBarTheme: const AppBarTheme(
-        color: Colors.purple,
+        color: Colors.amber,
         toolbarTextStyle: TextStyle(color: Colors.black),
         titleTextStyle: TextStyle(color: Colors.black),
       ),
@@ -79,8 +79,8 @@ class MyThemes {
 
   static final ThemeData lightIndigoPinkTheme = ThemeData(
     brightness: Brightness.light,
-    primaryColor: Colors.indigo,
-    primarySwatch: Colors.pink,
+    primaryColor: Colors.pink,
+    primarySwatch: Colors.indigo,
     iconTheme: const IconThemeData(color: Colors.pink),
     textTheme: const TextTheme(
         subtitle1: TextStyle(
@@ -146,8 +146,8 @@ class MyThemes {
 
   static final ThemeData darkPinkBlueGreyTheme = ThemeData(
     brightness: Brightness.dark,
-    primarySwatch: Colors.blueGrey,
-    primaryColor: Colors.pink,
+    primarySwatch: Colors.pink,
+    primaryColor: Colors.blueGrey,
     iconTheme: const IconThemeData(color: Colors.blueGrey),
     textTheme: const TextTheme(
         subtitle1: TextStyle(
@@ -192,7 +192,7 @@ class MyThemes {
       selectionColor: Colors.indigo,
     ),
     appBarTheme: const AppBarTheme(
-      color: Colors.pink,
+      color: Colors.blueGrey,
       toolbarTextStyle: TextStyle(color: Colors.black38),
       titleTextStyle: TextStyle(color: Colors.black38),
     ),
@@ -213,7 +213,7 @@ class MyThemes {
 
   static final ThemeData darkPurpleGreenTheme = ThemeData(
     brightness: Brightness.dark,
-    primaryColor: Colors.purple,
+    primaryColor: Colors.green,
     primarySwatch: Colors.green,
     iconTheme: const IconThemeData(color: Colors.green),
     textTheme: const TextTheme(
@@ -260,7 +260,7 @@ class MyThemes {
       selectionColor: Colors.purple,
     ),
     appBarTheme: const AppBarTheme(
-      color: Colors.pink,
+      color: Colors.purple,
       toolbarTextStyle: TextStyle(color: Colors.black45),
       titleTextStyle: TextStyle(color: Colors.black45),
     ),
