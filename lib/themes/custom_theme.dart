@@ -1,8 +1,8 @@
+import 'package:adv_widgets/themes/themes.dart';
 import 'package:flutter/material.dart';
-import 'package:adv_widgets/themes.dart';
 
 class _CustomTheme extends InheritedWidget {
-  final CustomThemeState data;
+  final MyCustomThemeState data;
 
   const _CustomTheme({
     required this.data,
@@ -16,18 +16,18 @@ class _CustomTheme extends InheritedWidget {
   }
 }
 
-class CustomTheme extends StatefulWidget {
+class MyCustomTheme extends StatefulWidget {
   final Widget child;
   final MyThemeKeys initialThemeKey;
 
-  const CustomTheme({
+  const MyCustomTheme({
     Key? key,
     required this.initialThemeKey,
     required this.child,
   }) : super(key: key);
 
   @override
-  CustomThemeState createState() => CustomThemeState();
+  MyCustomThemeState createState() => MyCustomThemeState();
 
   static ThemeData of(BuildContext context) {
     _CustomTheme inherited =
@@ -35,14 +35,14 @@ class CustomTheme extends StatefulWidget {
     return inherited.data.theme;
   }
 
-  static CustomThemeState instanceOf(BuildContext context) {
+  static MyCustomThemeState instanceOf(BuildContext context) {
     _CustomTheme inherited =
         (context.dependOnInheritedWidgetOfExactType<_CustomTheme>()!);
     return inherited.data;
   }
 }
 
-class CustomThemeState extends State<CustomTheme> {
+class MyCustomThemeState extends State<MyCustomTheme> {
   late ThemeData _theme;
 
   ThemeData get theme => _theme;

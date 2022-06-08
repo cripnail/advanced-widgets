@@ -1,5 +1,6 @@
-import 'package:adv_widgets/custom_theme.dart';
-import 'package:adv_widgets/themes.dart';
+import 'package:adv_widgets/themes/custom_theme.dart';
+import 'package:adv_widgets/themes/themes.dart';
+import 'package:adv_widgets/widgets/slider/slider.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -11,7 +12,7 @@ class HomeScreen extends StatefulWidget {
 
 class HomeScreenState extends State<HomeScreen> {
   void _changeTheme(BuildContext buildContext, MyThemeKeys key) {
-    CustomTheme.instanceOf(buildContext).changeTheme(key);
+    MyCustomTheme.instanceOf(buildContext).changeTheme(key);
   }
 
   @override
@@ -21,6 +22,7 @@ class HomeScreenState extends State<HomeScreen> {
         backgroundColor: Theme.of(context).primaryColor,
         title: const Text("Homepage"),
       ),
+      body: const MySlider(),
       floatingActionButton: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
