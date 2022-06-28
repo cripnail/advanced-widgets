@@ -1,6 +1,7 @@
 import 'package:adv_widgets/themes/custom_theme.dart';
 import 'package:adv_widgets/home.dart';
 import 'package:adv_widgets/themes/themes.dart';
+import 'package:adv_widgets/widgets/hero/detail_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,7 +21,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Dynamic themes demo',
       theme: MyCustomTheme.of(context),
-      home: const HomeScreen(),
+      initialRoute: '/first',
+      routes: {
+        '/first': (context) => const HomeScreen(),
+        '/second': (context) => const DetailScreen(),
+      },
     );
   }
 }

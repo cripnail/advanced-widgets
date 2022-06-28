@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 
-class MySlider extends StatefulWidget {
-  const MySlider({Key? key}) : super(key: key);
+class MySlider extends StatelessWidget {
+  const MySlider({Key? key, required this.onChange, required this.value})
+      : super(key: key);
 
-  @override
-  State<MySlider> createState() => _MySliderState();
-}
-
-class _MySliderState extends State<MySlider> {
-  final bool value = false;
-  double val = 1;
+  final Function(double) onChange;
+  final double value;
 
   @override
   Widget build(BuildContext context) {
@@ -17,18 +13,14 @@ class _MySliderState extends State<MySlider> {
       child: SizedBox(
           height: 100,
           child: Slider(
-            value: val,
-            onChanged: (value) {
-              setState(() {
-                val = value;
-              });
-            },
+            value: value,
+            onChanged: (value) => onChange(value),
             min: 0,
             max: 10,
-            divisions: 2,
+            divisions: 10,
             activeColor: Colors.green,
             inactiveColor: Colors.green[100],
-            label: val.round().toString(),
+            label: value.round().toString(),
           )),
     );
   }
