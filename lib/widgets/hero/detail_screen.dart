@@ -1,10 +1,24 @@
+import 'package:adv_widgets/widgets/tint/tint.dart';
 import 'package:flutter/material.dart';
 
 import '../clouds/clouds_background.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key}) : super(key: key);
-  final double value = 0;
+  const DetailScreen({Key? key, this.value = 0}) : super(key: key);
+  final double value;
+
+  String weatherText(double value) {
+    if (value <= 0.2 && value > 0) {
+      return "Sunny,";
+    }
+    if (value <= 0.2 && value > 0) {
+      return "Cloudy,";
+    }
+    if (value <= 0.8 && value > 0.2) {
+      return "Rainy,";
+    }
+    return "12° С";
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,26 +26,30 @@ class DetailScreen extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(),
       body: SingleChildScrollView(
-          child: Column(children: [
-        Padding(
-          padding: const EdgeInsets.only(bottom: 30.0),
-          child: Center(
-            child: Column(children: [
-              Hero(
-                tag: 'imageHero',
-                child: Clouds(value: value),
+        child: Column(
+          children: [
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 30.0),
+                child: Column(children: [
+                  Hero(
+                      tag: 'cloud',
+                      child: GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Clouds(value: value))),
+                  Tint(
+                    color: const Color.fromARGB(40, 255, 84, 6),
+                    child: Text(weatherText(value),
+                        textDirection: TextDirection.ltr),
+                  ),
+                ]),
               ),
-              if (value <= 0.2 && value > 0)
-                const Hero(tag: 'sun-to-rain', child: Text('Sunny,')),
-              if (value <= 0.8 && value > 0.2)
-                const Hero(tag: 'sun-to-rain', child: Text('Cloudy,')),
-              if (value <= 1 && value > 0.8)
-                const Hero(tag: 'sun-to-rain', child: Text('Rainy,')),
-              const Hero(tag: 'celsius', child: Text('12° C')),
-            ]),
-          ),
+            ),
+          ],
         ),
-      ])),
+      ),
     );
   }
 }

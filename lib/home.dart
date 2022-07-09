@@ -35,13 +35,23 @@ class HomeScreenState extends State<HomeScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          GestureDetector(
-            child: Hero(tag: 'imageHero', child: Clouds(value: value)),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) {
-                return const DetailScreen();
-              }));
-            },
+          Hero(
+            tag: 'cloud',
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) {
+                    return DetailScreen(
+                      value: value,
+                    );
+                  }),
+                );
+              },
+              child: Clouds(
+                value: value,
+              ),
+            ),
           ),
           MySlider(onChange: onSlide, value: value)
         ],
