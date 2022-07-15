@@ -4,21 +4,27 @@ import 'package:flutter/material.dart';
 import '../clouds/clouds_background.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key, this.value = 0}) : super(key: key);
+  DetailScreen({Key? key, this.value = 0}) : super(key: key);
   final double value;
 
-  String weatherText(double value) {
-    if (value <= 0.2 && value > 0) {
-      return "Sunny,";
-    }
-    if (value <= 0.2 && value > 0) {
-      return "Cloudy,";
+  String? weatherText(double value) {
+    if (value <= 0.2 && value >= 0) {
+      return myMap[1];
     }
     if (value <= 0.8 && value > 0.2) {
-      return "Rainy,";
+      return myMap[2];
     }
-    return "12° С";
+    if (value <= 1 && value > 0.8) {
+      return myMap[3];
+    }
+    return null;
   }
+
+  final Map<int, String> myMap = {
+    1: "Sunny, \n12° С",
+    2: "Cloudy, \n12° С",
+    3: "Rainy, \n12° С",
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +47,8 @@ class DetailScreen extends StatelessWidget {
                           child: Clouds(value: value))),
                   Tint(
                     color: const Color.fromARGB(40, 255, 84, 6),
-                    child: Text(weatherText(value),
+                    child: Text(weatherText(value)!,
+                        style: const TextStyle(fontSize: 95),
                         textDirection: TextDirection.ltr),
                   ),
                 ]),

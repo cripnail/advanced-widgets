@@ -16,75 +16,84 @@ class HomeScreenState extends State<HomeScreen> {
   void _changeTheme(BuildContext buildContext, MyThemeKeys key) {
     MyCustomTheme.instanceOf(buildContext).changeTheme(key);
   }
+  double currentValue = 0;
 
-  double value = 0;
-
-  void onSlide(double size) {
+  void onSlide(double value) {
     setState(() {
-      value = size;
+      currentValue = value;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
-        title: const Text("Homepage"),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Hero(
-            tag: 'cloud',
-            child: GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) {
-                    return DetailScreen(
-                      value: value,
-                    );
-                  }),
-                );
-              },
-              child: Clouds(
-                value: value,
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Hero(
+              tag: 'cloud',
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) {
+                      return DetailScreen(
+                        value: currentValue,
+                      );
+                    }),
+                  );
+                },
+                child: Padding(
+                  padding: EdgeInsets.only(
+                      left: 80 * currentValue, top: 249, right: 33),
+                  // fromLTRB(8, 249, 15, 128),
+                  child: SizedBox(
+                    width: 100,
+                    height: 70,
+                    child: Clouds(
+                      value: currentValue,
+                    ),
+                  ),
+                ),
               ),
             ),
-          ),
-          MySlider(onChange: onSlide, value: value)
-        ],
+            const SizedBox(
+              height: 211,
+            ),
+            MySlider(onChange: onSlide, value: currentValue)
+          ],
+        ),
+        floatingActionButton: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            FloatingActionButton(
+              onPressed: () {
+                _changeTheme(context, MyThemeKeys.lightPurpleAmber);
+              },
+              backgroundColor: Colors.amber,
+            ),
+            FloatingActionButton(
+              onPressed: () {
+                _changeTheme(context, MyThemeKeys.lightIndigoPink);
+              },
+              backgroundColor: Colors.pink,
+            ),
+            FloatingActionButton(
+              onPressed: () {
+                _changeTheme(context, MyThemeKeys.darkPinkBlueGrey);
+              },
+              backgroundColor: Colors.blueGrey,
+            ),
+            FloatingActionButton(
+              onPressed: () {
+                _changeTheme(context, MyThemeKeys.darkPurpleGreen);
+              },
+              backgroundColor: Colors.green,
+            ),
+          ],
+        ), // This trailing comma
       ),
-      floatingActionButton: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          FloatingActionButton(
-            onPressed: () {
-              _changeTheme(context, MyThemeKeys.lightPurpleAmber);
-            },
-            backgroundColor: Colors.amber,
-          ),
-          FloatingActionButton(
-            onPressed: () {
-              _changeTheme(context, MyThemeKeys.lightIndigoPink);
-            },
-            backgroundColor: Colors.pink,
-          ),
-          FloatingActionButton(
-            onPressed: () {
-              _changeTheme(context, MyThemeKeys.darkPinkBlueGrey);
-            },
-            backgroundColor: Colors.blueGrey,
-          ),
-          FloatingActionButton(
-            onPressed: () {
-              _changeTheme(context, MyThemeKeys.darkPurpleGreen);
-            },
-            backgroundColor: Colors.green,
-          ),
-        ],
-      ), // This trailing comma
     );
   }
 }
