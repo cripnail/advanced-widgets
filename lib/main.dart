@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/first',
       routes: {
         '/first': (context) => const HomeScreen(),
-        '/second': (context) => const DetailScreen(),
+        '/second': (context) => DetailScreen(),
       },
     );
   }

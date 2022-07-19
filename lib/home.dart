@@ -39,7 +39,7 @@ class HomeScreenState extends State<HomeScreen> {
             child: Hero(tag: 'imageHero', child: Clouds(value: value)),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (_) {
-                return const DetailScreen();
+                return DetailScreen();
               }));
             },
           ),
