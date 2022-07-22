@@ -36,10 +36,10 @@ class HomeScreenState extends State<HomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           GestureDetector(
-            child: Hero(tag: 'imageHero', child: Clouds(value: value)),
+            child: Hero(tag: 'cloud', child: Clouds(value: value)),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (_) {
-                return DetailScreen();
+                return DetailScreen(value: value);
               }));
             },
           ),
