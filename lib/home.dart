@@ -3,6 +3,8 @@ import 'package:adv_widgets/themes/themes.dart';
 import 'package:adv_widgets/widgets/clouds/clouds_background.dart';
 import 'package:adv_widgets/widgets/hero/detail_screen.dart';
 import 'package:adv_widgets/widgets/slider/slider.dart';
+import 'package:adv_widgets/widgets/sun/sun_background.dart';
+import 'package:adv_widgets/widgets/sun/sun_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -36,7 +38,16 @@ class HomeScreenState extends State<HomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           GestureDetector(
-            child: Hero(tag: 'cloud', child: Clouds(value: value)),
+            child: Hero(
+              tag: 'cloud',
+              child: Stack(children: <Widget>[
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(148.0, 16, 16, 80),
+                  child: SunWidget(),
+                ),
+                Clouds(value: value),
+              ]),
+            ),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (_) {
                 return DetailScreen(value: value);
