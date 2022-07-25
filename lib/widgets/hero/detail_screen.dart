@@ -1,3 +1,4 @@
+import 'package:adv_widgets/widgets/sun/inner_shadow.dart';
 import 'package:flutter/material.dart';
 
 import '../clouds/clouds_background.dart';
@@ -34,9 +35,24 @@ class DetailScreen extends StatelessWidget {
                 tag: 'cloud',
                 child: Clouds(value: value),
               ),
-              Text(weatherText(value),
-                  style: const TextStyle(fontSize: 55),
-                  textDirection: TextDirection.ltr),
+              InnerShadow(
+                blur: 5,
+                color: const Color(0xFF477C70),
+                offset: const Offset(5, 5),
+                child: Container(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(8)),
+                    color: Color(0xFFE9EFEC),
+                  ),
+                  height: 100,
+                  width: 200,
+                  child: Center(
+                    child: Text(weatherText(value),
+                        style: const TextStyle(fontSize: 35),
+                        textDirection: TextDirection.ltr),
+                  ),
+                ),
+              ),
             ]),
           ),
         ),
