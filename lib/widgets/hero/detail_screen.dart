@@ -12,10 +12,10 @@ class DetailScreen extends StatelessWidget {
       return 'Sunny, \n24° С';
     }
     if (value < 5 && value >= 3) {
-      return 'Sunny, \n12° С';
+      return 'Cloudy, \n12° С';
     }
     if (value <= 10 && value >= 5) {
-      return 'Sunny, \n1° С';
+      return 'Rainy, \n1° С';
     }
     return 'Not existing value';
   }
