@@ -3,7 +3,6 @@ import 'package:adv_widgets/themes/themes.dart';
 import 'package:adv_widgets/widgets/clouds/clouds_background.dart';
 import 'package:adv_widgets/widgets/hero/detail_screen.dart';
 import 'package:adv_widgets/widgets/slider/slider.dart';
-import 'package:adv_widgets/widgets/sun/sun_background.dart';
 import 'package:adv_widgets/widgets/sun/sun_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -61,18 +60,21 @@ class HomeScreenState extends State<HomeScreen> {
         mainAxisSize: MainAxisSize.min,
         children: [
           FloatingActionButton(
+            heroTag: "btn1",
             onPressed: () {
               _changeTheme(context, MyThemeKeys.lightPurpleAmber);
             },
             backgroundColor: Colors.amber,
           ),
           FloatingActionButton(
+            heroTag: "btn2",
             onPressed: () {
               _changeTheme(context, MyThemeKeys.lightIndigoPink);
             },
             backgroundColor: Colors.pink,
           ),
           FloatingActionButton(
+            heroTag: "btn3",
             onPressed: () {
               _changeTheme(context, MyThemeKeys.darkPinkBlueGrey);
             },
