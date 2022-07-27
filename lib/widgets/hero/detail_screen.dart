@@ -1,7 +1,7 @@
-import 'package:adv_widgets/widgets/sun/inner_shadow.dart';
 import 'package:flutter/material.dart';
 
 import '../clouds/clouds_background.dart';
+import '../renderer/inner_shadow.dart';
 
 class DetailScreen extends StatelessWidget {
   const DetailScreen({Key? key, required this.value}) : super(key: key);
