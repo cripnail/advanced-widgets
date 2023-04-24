@@ -36,7 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.5
   dynamic_themes: ^1.1.0
   watcher: ^1.0.1
-  flutter_launcher_icons: ^0.11.0
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
